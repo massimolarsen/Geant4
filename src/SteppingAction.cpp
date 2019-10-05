@@ -11,6 +11,7 @@ SteppingAction::SteppingAction(EventAction* eventAction)
 	:G4UserSteppingAction(),
 	fEventAction(eventAction),
 	fScoringVolume(0)
+
 {}
 
 SteppingAction::~SteppingAction()
