@@ -1,4 +1,4 @@
-#include "DetectorConstruction.hh"
+#include "DetectorConstruction.h"
 
 #include "G4RunManager.hh"
 #include "G4NistManager.hh"

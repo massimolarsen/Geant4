@@ -1,8 +1,8 @@
-#include "ActionInitialization.hh"
-#include "PrimaryGeneratorAction.hh"
-#include "RunAction.hh"
-#include "EventAction.hh"
-#include "SteppingAction.hh"
+#include "ActionInitialization.h"
+#include "PrimaryGeneratorAction.h"
+#include "RunAction.h"
+#include "EventAction.h"
+#include "SteppingAction.h"
 
 
 ActionInitialization::ActionInitialization()

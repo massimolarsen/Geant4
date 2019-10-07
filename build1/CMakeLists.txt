@@ -26,13 +26,13 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 # Locate sources and headers for this project
 # NB: headers are included so they will show up in IDEs
 #
-file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
-file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
+file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cpp)
+file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.h)
 
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(build1 build1.cc ${sources} ${headers})
+add_executable(build1 build1.cpp ${sources} ${headers})
 target_link_libraries(build1 ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
@@ -41,20 +41,20 @@ target_link_libraries(build1 ${Geant4_LIBRARIES})
 # relies on these scripts being in the current working directory.
 #
 # set(EXAMPLEB1_SCRIPTS
-  exampleB1.in
-  exampleB1.out
-  init_vis.mac
-  run1.mac
-  run2.mac
-  vis.mac
-  )
+#  exampleB1.in
+#  exampleB1.out
+#  init_vis.mac
+#  run1.mac
+#  run2.mac
+#  vis.mac
+#  )
 
 #foreach(_script ${EXAMPLEB1_SCRIPTS})
-  configure_file(
-    ${PROJECT_SOURCE_DIR}/${_script}
-    ${PROJECT_BINARY_DIR}/${_script}
-    COPYONLY
-    )
+#  configure_file(
+#    ${PROJECT_SOURCE_DIR}/${_script}
+#    ${PROJECT_BINARY_DIR}/${_script}
+#    COPYONLY
+#    )
 #endforeach()
 
 #----------------------------------------------------------------------------

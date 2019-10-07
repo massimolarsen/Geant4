@@ -1,6 +1,6 @@
-#include "SteppingAction.hh"
-#include "EventAction.hh"
-#include "DetectorConstruction.hh"
+#include "SteppingAction.h"
+#include "EventAction.h"
+#include "DetectorConstruction.h"
 
 #include "G4Step.hh"
 #include "G4Event.hh"
