@@ -1,6 +1,10 @@
+# $Id: CMakeLists.txt 86065 2014-11-07 08:51:15Z gcosmo $
+
+#----------------------------------------------------------------------------
 # Setup the project
+#
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
-project(build1)
+project(B2a)
 
 #----------------------------------------------------------------------------
 # Find Geant4 package, activating all available UI and Vis drivers by default
@@ -21,49 +25,46 @@ endif()
 include(${Geant4_USE_FILE})
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
 # NB: headers are included so they will show up in IDEs
 #
-file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cpp)
-file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.h)
+file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
+file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(build1 build1.cpp ${sources} ${headers})
-target_link_libraries(build1 ${Geant4_LIBRARIES})
+add_executable(exampleB2a exampleB2a.cc ${sources} ${headers})
+target_link_libraries(exampleB2a ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Copy all scripts to the build directory, i.e. the directory in which we
-# build B1. This is so that we can run the executable directly because it
+# build B2a. This is so that we can run the executable directly because it
 # relies on these scripts being in the current working directory.
 #
-# set(EXAMPLEB1_SCRIPTS
-#  exampleB1.in
-#  exampleB1.out
-#  init_vis.mac
-#  run1.mac
-#  run2.mac
-#  vis.mac
-#  )
+set(EXAMPLEB2A_SCRIPTS
+  exampleB2a.out
+  exampleB2.in
+  icons.mac
+  gui.mac
+  run.png
+  run1.mac
+  run2.mac
+  init_vis.mac
+  vis.mac
+  )
 
-#foreach(_script ${EXAMPLEB1_SCRIPTS})
-#  configure_file(
-#    ${PROJECT_SOURCE_DIR}/${_script}
-#    ${PROJECT_BINARY_DIR}/${_script}
-#    COPYONLY
-#    )
-#endforeach()
-
-#----------------------------------------------------------------------------
-# For internal Geant4 use - but has no effect if you build this
-# example standalone
-#
-add_custom_target(B1 DEPENDS build1)
+foreach(_script ${EXAMPLEB2A_SCRIPTS})
+  configure_file(
+    ${PROJECT_SOURCE_DIR}/${_script}
+    ${PROJECT_BINARY_DIR}/${_script}
+    COPYONLY
+    )
+endforeach()
 
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS build1 DESTINATION bin)
+install(TARGETS exampleB2a DESTINATION bin)
+
